@@ -4,6 +4,8 @@ import pandas as pd
 
 import matplotlib.pyplot as plt
 
+import plotly.express as px
+
 st.title("Mi primera app en Streamlit")
 
 st.write("**¡Hola mundo!**")
@@ -24,6 +26,9 @@ st.subheader("Propina promedio por día de la semana")
 tip_by = df.groupby("day")["tip"].mean()
 
 st.bar_chart(tip_by)
+
+fig1 = px.box(df, y="total_bill")
+st.plotly_chart(fig1)
 
 
 if "mostrar" not in st.session_state:
